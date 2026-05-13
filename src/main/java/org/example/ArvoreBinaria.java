@@ -36,6 +36,28 @@ public class ArvoreBinaria {
         }
     }
 
+    public void inserirRecursivo(No novoNo, No atual){
+
+        if(atual.getConteudo() > novoNo.getConteudo()){
+            if(atual.getNoEsquerda() == null){
+                atual.setNoEsquerda(novoNo);
+                return;
+            } else {
+                inserirRecursivo(novoNo, atual.getNoEsquerda());
+            }
+        } else if(atual.getConteudo() == novoNo.getConteudo()) {
+            System.out.println("Não é possivel informar nõs repetidos.");
+            return;
+        } else {
+            if (atual.getNoDireita() == null) {
+                atual.setNoDireita(novoNo);
+                return;
+            } else {
+                inserirRecursivo(novoNo, atual.getNoDireita());
+            }
+        }
+    }
+
     public boolean is_empty() {
         return raiz == null;
     }
